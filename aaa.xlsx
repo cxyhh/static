@@ -1,0 +1,53 @@
+enno_msgId	Total	match	FALSE	pass	diff_mark_rate	
+AcNoSyncScheme	2833	2089	126	618	83.06%	
+AcSyncCtrlPath	5036	4962	46	28	37.84%	
+AcSyncDataPath	1615	1460	48	107	69.03%	
+AcUnsyncCtrlPath	1605	1070	145	390	72.90%	
+AcUnsyncDataPath	598	503	39	56	58.95%	
+			404	1199	74.80%	
+Ac_sync01	2090	2032	13	45	77.59%	
+Ac_sync02	4770	4309	116	345	74.84%	
+Ac_unsync01	1716	1122	128	466	78.45%	
+Ac_unsync02	4010	2621	716	673	48.45%	
+			973	1529	61.11%	
+						0.66455542
+
+enno_msgId	sg_rule	A_report_total	enno_report_total	Missing_reort	False_report	A_pass_num	Enno_pass_num	A_diff_mark_rate	Enno_diff_mark_rate
+SetupClkInferred	Clock_info01	17695	17417	176	26	156	28	46.99%	51.85%
+SetupClkNetUndefined	Clock_info03a	256	255	15	18	4	0	21.05%	0.00%
+SetupDataTiedToConst	Clock_info03b	1456	1635	9	150	16	54	64.00%	26.47%
+SetupClkTiedToConst	Clock_info03c	375	407	6	49	32	21	84.21%	30.00%
+SetupAsyncClkConvOnComb	Clock_info05b	303	304	10	0	10	21	50.00%	100.00%
+SetupAsyncClkConvOnMux	Clock_info05	117	130	11	25	13	12	54.17%	32.43%
+SetupClkMuxNotRcvClk	Clock_info05c	130	128	13	11	4	4	23.53%	26.67%
+SetupClkUndefined	Setup_clockreset01	229	91	8	3	0	0	0.00%	0.00%
+SetupRstUndefined	Setup_clockreset01		131		1		0		0.00%
+SetupConstraintConflict	Setup_check01	569	564	4	0	1	0	20.00%	0.00%
+SetupPort*	Setup_port01	93080	92545	482	447	534	34	52.56%	7.07%
+SetupBBoxPin*	Setup_blackbox01	770	773	6	12	20	17	76.92%	58.62%
+SetupClockGlitch	Clock_glitch05	139	135	10	6	0	0	0.00%	0.00%
+IntegrityClockConverge	Clock_converge01	138	134	34	30	104	104	75.36%	77.61%
+IntegrityRstConvOnComb	Ar_converge01	251	191	66	0	0	6	0.00%	100.00%
+ChyAcSyncMultiTimes	Ac_coherency06	80	84	0	4	0	0		0.00%
+ChyDiffSrcConv	Ac_conv03	185	185	2	4	3	1	60.00%	20.00%
+ChyCtrlBusNoConv	Ac_conv04	523	435	105	106	0	0	0.00%	0.00%
+ChyDataBusDiffSyncScheme	Ac_conv04		14		0		0		0.00%
+ChyDataBusDiffEnable	Ac_conv04		85		10		0		0.00%
+ChySameSrcConvIncSeq	Ac_conv01	409	402	6	0	14	7	70.00%	100.00%
+ChySameSrcConvExcSeq	Ac_conv02	674	688	5	10	26	36	83.87%	78.26%
+SetupInputMultiClkSampled	Clock_sync05a/Clock_sync05	202	196	3	76	118	108	97.52%	58.70%
+SetupOutputMultiClkDriven	Clock_sync06a/Clock_sync06	368	361	2	1	22	16	91.67%	94.12%
+SetupRstSenseMissing	Ac_resetvalue01	58	58	28	28	0	0	0.00%	0.00%
+SetupResetInferred	Reset_info01	4992	5250	184	679	261	24	58.65%	3.41%
+SetupRstNetUnDefined	Reset_info09a	897	901	9	17	236	232	96.33%	93.17%
+				1194	1713	1574	725	56.86%	29.74%
+									44.16%
+
+  enno_msgId	sg_rule	A_report_total	enno_report_total	Missing_reort	False_report	A_pass_num	Enno_pass_num	A_diff_mark_rate	Enno_diff_mark_rate
+ArSyncCtrlPath	Ar_sync01	8056	341	35	17	7323	226	99.52%	93.00%
+ArUnsyncCtrlPath	Ar_unsync01	9499	11013	4	99	1754	2453	99.77%	96.12%
+	Reset_sync02	1796		41		1032		96.18%	
+ChyArSyncMultiTimes	Reset_sync04	80	74	6	0	0	0	0.00%	0.00%
+				86	116	10109	2679	99.16%	95.85%
+									98.44%
+
