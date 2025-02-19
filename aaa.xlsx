@@ -1,53 +1,21 @@
-enno_msgId	Total	match	FALSE	pass	diff_mark_rate	
-AcNoSyncScheme	2833	2089	126	618	83.06%	
-AcSyncCtrlPath	5036	4962	46	28	37.84%	
-AcSyncDataPath	1615	1460	48	107	69.03%	
-AcUnsyncCtrlPath	1605	1070	145	390	72.90%	
-AcUnsyncDataPath	598	503	39	56	58.95%	
-			404	1199	74.80%	
-Ac_sync01	2090	2032	13	45	77.59%	
-Ac_sync02	4770	4309	116	345	74.84%	
-Ac_unsync01	1716	1122	128	466	78.45%	
-Ac_unsync02	4010	2621	716	673	48.45%	
-			973	1529	61.11%	
-						0.66455542
-
-enno_msgId	sg_rule	A_report_total	enno_report_total	Missing_reort	False_report	A_pass_num	Enno_pass_num	A_diff_mark_rate	Enno_diff_mark_rate
-SetupClkInferred	Clock_info01	17695	17417	176	26	156	28	46.99%	51.85%
-SetupClkNetUndefined	Clock_info03a	256	255	15	18	4	0	21.05%	0.00%
-SetupDataTiedToConst	Clock_info03b	1456	1635	9	150	16	54	64.00%	26.47%
-SetupClkTiedToConst	Clock_info03c	375	407	6	49	32	21	84.21%	30.00%
-SetupAsyncClkConvOnComb	Clock_info05b	303	304	10	0	10	21	50.00%	100.00%
-SetupAsyncClkConvOnMux	Clock_info05	117	130	11	25	13	12	54.17%	32.43%
-SetupClkMuxNotRcvClk	Clock_info05c	130	128	13	11	4	4	23.53%	26.67%
-SetupClkUndefined	Setup_clockreset01	229	91	8	3	0	0	0.00%	0.00%
-SetupRstUndefined	Setup_clockreset01		131		1		0		0.00%
-SetupConstraintConflict	Setup_check01	569	564	4	0	1	0	20.00%	0.00%
-SetupPort*	Setup_port01	93080	92545	482	447	534	34	52.56%	7.07%
-SetupBBoxPin*	Setup_blackbox01	770	773	6	12	20	17	76.92%	58.62%
-SetupClockGlitch	Clock_glitch05	139	135	10	6	0	0	0.00%	0.00%
-IntegrityClockConverge	Clock_converge01	138	134	34	30	104	104	75.36%	77.61%
-IntegrityRstConvOnComb	Ar_converge01	251	191	66	0	0	6	0.00%	100.00%
-ChyAcSyncMultiTimes	Ac_coherency06	80	84	0	4	0	0		0.00%
-ChyDiffSrcConv	Ac_conv03	185	185	2	4	3	1	60.00%	20.00%
-ChyCtrlBusNoConv	Ac_conv04	523	435	105	106	0	0	0.00%	0.00%
-ChyDataBusDiffSyncScheme	Ac_conv04		14		0		0		0.00%
-ChyDataBusDiffEnable	Ac_conv04		85		10		0		0.00%
-ChySameSrcConvIncSeq	Ac_conv01	409	402	6	0	14	7	70.00%	100.00%
-ChySameSrcConvExcSeq	Ac_conv02	674	688	5	10	26	36	83.87%	78.26%
-SetupInputMultiClkSampled	Clock_sync05a/Clock_sync05	202	196	3	76	118	108	97.52%	58.70%
-SetupOutputMultiClkDriven	Clock_sync06a/Clock_sync06	368	361	2	1	22	16	91.67%	94.12%
-SetupRstSenseMissing	Ac_resetvalue01	58	58	28	28	0	0	0.00%	0.00%
-SetupResetInferred	Reset_info01	4992	5250	184	679	261	24	58.65%	3.41%
-SetupRstNetUnDefined	Reset_info09a	897	901	9	17	236	232	96.33%	93.17%
-				1194	1713	1574	725	56.86%	29.74%
-									44.16%
-
-  enno_msgId	sg_rule	A_report_total	enno_report_total	Missing_reort	False_report	A_pass_num	Enno_pass_num	A_diff_mark_rate	Enno_diff_mark_rate
-ArSyncCtrlPath	Ar_sync01	8056	341	35	17	7323	226	99.52%	93.00%
-ArUnsyncCtrlPath	Ar_unsync01	9499	11013	4	99	1754	2453	99.77%	96.12%
-	Reset_sync02	1796		41		1032		96.18%	
-ChyArSyncMultiTimes	Reset_sync04	80	74	6	0	0	0	0.00%	0.00%
-				86	116	10109	2679	99.16%	95.85%
-									98.44%
-
+		类型	0in约束命令	sdc命令	0in约束例子	sdc约束例子	备注
+		顶层约束	N.A.	set _top -module TOP			0in无对应命令，这个命令可以先暂时把top写死为MAIN_DIG_TOP,或者传参确认top
+		sync cell	cdc custom sync arg -type arg	set_sync_cell arg	cdc custom sync HI_two_clk_dmux  -type HI_two_clk_dmux	set_sync_cell  HI_two_clk_dmux	目前收到的例子，0in约束中 -type前后的arg是一致的，所以转换时只取一个arg
+			cdc custom sync arg -from arg1 -to arg2 -internal_crossing arg3 -module arg4	N.A.			enno无对应的命令先不做这块
+			hier port domain arg -clock arg1 -module arg2	N.A.			enno无对应的命令先不做这块
+		黑盒设置	netlist blackbox arg1	set_ip_block arg1	netlist blackbox HIMINIBUS_FIFO_ASYNC	set_ip_block HIMINIBUS_FIFO_ASYNC	
+		常值设置	netlist constant arg const_value（=0/1） -module arge2	set_case_analysis -objects [get_nets arg2/arg1] const_value	netlist constant sfw_ready_en 0 -module HIMINIBUS_FIFO_AYSNC	set_case_analysis -objects [get_nets HIMINIBUS_FIFO_AYSNC/sfw_ready_en] 0	
+		abstract port	nelist port domain arg -clock arg1 -module arg2	set_abstract_port -ports arg -clock arg1 -module arg2	nelist port domain rx0_a_afe -clock clk_a_rx0 -module MAIN_DIG_TOP	set_abstract_port -ports  rx0_a_afe -clock  clk_a_rx0 -module MAIN_DIG_TOP	如果约束中已经指定了module，转换成enno约束时，不需要有[get_ports ]命令
+			nelist port domain arg -clock arg1 	set_abstract_port -ports [get_ports TOP/arg] -clock arg1			如果约束中未指定参数，转换成enno约束时，需要get_ports，并且认为信号在顶层
+			nelist port domain arg  -async -clock arg1 	set_abstract_port -ports [get_ports TOP/arg] -clock vclk_arg			如果0in的port约束中有-async，则将port的时钟约束为同名的虚拟时钟
+			nelist port domain arg  -async -clock arg1 -module arg2	set_abstract_port -ports [get_ports arg2/arg] -clock vclk_arg			
+			nelist port domain arg -ignore -module	N.A.			enno无对应命令，先不做
+		时钟约束	netlist clock arg -period const_value -module arg1 -group arg2	create_clock -name arg [get_nets arg1/arg] ;assign_clock_domain -domian arg2 -clocks arg			"0in约束中 -module后的信号决定 enno [get_nets ]中的信号层次。-group对应enno的domain。-period参数暂时不做转换
+如果0in约束中-module定义的层次和arg信号的顶层一致，则转换时不需要额外将[get_nets ]内的信号加一个顶层"
+							
+		注：					
+		  如果约束命令中有-module参数，-module中指定的是顶层，约束信号的层次中本身就带了顶层层次，转换时，注意get命令不要get两次顶层					
+		nelist port domain MAIN_DIG_TOP. tx0_afe -clock clk_apb -module MAIN_DIG_TOP	set_abstract_port -ports [get_ports   MAIN_DIG_TOP/tx0_afe] -clock clk_apb -module MAIN_DIG_TOP				
+		  对于约束命令中的信号名，任然需要用reformat进行转换，0in约束层次模式和sg类似					
+		  0in约束中支持for循环的写法，转换时可以保留for循环模块，但是for循环内部的约束命令任需要转换					
+		  除上述约束命令以外的约束，无需转换，直接保持0in约束表达，转换成sdc约束时，用#注释					
